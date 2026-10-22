@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Circle area{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Area of a circle</h2>
+  <p>Area = π × radius²</p>
+  <form method="post">
+    <input name="radius" type="number" step="any" min="0" placeholder="Radius" required>
+    <button>Calculate</button>
+  </form>
+  {% if error %}<div class="error">{{ error }}</div>{% endif %}
+  {% if result is not none %}<div class="result">Area: {{ result }}</div>{% endif %}
+</div>
+{% endblock %}

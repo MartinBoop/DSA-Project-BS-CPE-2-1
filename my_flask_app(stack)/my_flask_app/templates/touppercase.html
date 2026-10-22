@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}To uppercase{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>To uppercase</h2>
+  <p>Type anything and I'll make it loud.</p>
+  <form method="post">
+    <input name="inputString" placeholder="hello world" required>
+    <button>Convert</button>
+  </form>
+  {% if result %}<div class="result">{{ result }}</div>{% endif %}
+</div>
+{% endblock %}

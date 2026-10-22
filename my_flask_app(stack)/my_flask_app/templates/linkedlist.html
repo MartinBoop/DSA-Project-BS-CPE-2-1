@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Linked list{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Linked list</h2>
+  <p>Add, delete or search for values.</p>
+  <form method="post">
+    <input name="value" placeholder="Value" required>
+    <button name="action" value="head">Add to front</button>
+    <button name="action" value="tail">Add to end</button>
+    <button name="action" value="search" class="alt">Search</button>
+    <button name="action" value="delete" class="alt">Delete</button>
+  </form>
+  {% if message %}<div class="result">{{ message }}</div>{% endif %}
+  <div class="list">
+    <span class="null">head</span>
+    {% for item in items %}<span class="arrow">&rarr;</span><span class="node">{{ item }}</span>{% endfor %}
+    <span class="arrow">&rarr;</span><span class="null">None</span>
+  </div>
+  {% if not items %}<p class="empty">The list is empty. Add your first value above.</p>{% endif %}
+</div>
+{% endblock %}

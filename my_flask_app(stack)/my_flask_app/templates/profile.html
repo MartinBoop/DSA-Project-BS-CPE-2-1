@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="card">
+  <div class="avatar"><span>Y</span><img src="{{ url_for('static', filename='MartinProfile') }}" alt="Photo of Your Name" onerror="this.remove()"></div>
+  <h1>John Marvin G. Martin</h1>
+  <p>Im Currently studying about web developing, and i was hoping building a Online Casino one day.</p>
+  <h3>Basic Hardware, Student Coding(Python, HTML, MySQL)</h3>
+  <ul class="chips"><li>Python</li><li>Flask</li><li>HTML &amp; CSS</li></ul>
+  <dl>
+    <dt>Course</dt><dd>BSCpE, 2-1 1</dd>
+    <dt>School</dt><dd>Polythecnic University of The Philippines</dd>
+    <dt>Hobbies</dt><dd>Gaming, music, sleeping</dd>
+    <dt>Based in</dt><dd>c 29 Camia st. Gitnang bayan San Mateo, Rizal</dd>
+  </dl>
+</div>
+{% endblock %}

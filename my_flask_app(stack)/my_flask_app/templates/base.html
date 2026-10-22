@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}My Portfolio{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+  <a class="brand" href="{{ url_for('index') }}">John <span>Marvin</span> Martin</a>
+  <div class="links">
+    <a href="{{ url_for('index') }}" class="{{ 'on' if request.path == '/' }}">Home</a>
+    <a href="{{ url_for('profile') }}" class="{{ 'on' if request.path == '/profile' }}">Profile</a>
+    <a href="{{ url_for('works') }}" class="{{ 'on' if request.path.startswith('/works') }}">Works</a>
+    <a href="{{ url_for('contact') }}" class="{{ 'on' if request.path == '/contact' }}">Contact</a>
+  </div>
+</nav>
+<main>
+  {% if request.path.startswith('/works') %}
+  <div class="tabs">
+    <a href="{{ url_for('works') }}" class="{{ 'on' if request.path == '/works' }}">To uppercase</a>
+    <a href="{{ url_for('acircle') }}" class="{{ 'on' if 'circle' in request.path }}">Circle area</a>
+    <a href="{{ url_for('atriangle') }}" class="{{ 'on' if 'triangle' in request.path }}">Triangle area</a>
+    <a href="{{ url_for('linked_list') }}" class="{{ 'on' if 'linked' in request.path }}">Linked list</a>
+    <a href="{{ url_for('stack') }}" class="{{ 'on' if 'stack' in request.path }}">Stack</a>
+  </div>
+  {% endif %}
+  {% block content %}{% endblock %}
+</main>
+</body>
+</html>

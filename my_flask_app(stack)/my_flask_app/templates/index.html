@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>Hi Im John Marvin Martin</h1>
+  <p>I'm a student who likes Exploring codes, tidy things with code. Welcome to my corner of the web.</p>
+  <a class="btn" href="{{ url_for('profile') }}">Meet me</a>
+</section>
+<div class="grid">
+  <a class="card" href="{{ url_for('works') }}"><h3>Works</h3><p>Little programs: text, shapes, a linked list and a stack.</p></a>
+  <a class="card" href="{{ url_for('contact') }}"><h3>Contact</h3><p>Say hello anytime.</p></a>
+</div>
+{% endblock %}

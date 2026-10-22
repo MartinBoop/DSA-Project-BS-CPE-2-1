@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Stack{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Stack</h2>
+  <p>Last in, first out. Push onto the top, pop off the top.</p>
+  <form method="post">
+    <input name="value" placeholder="Value">
+    <button name="action" value="push">Push</button>
+    <button name="action" value="pop" class="alt">Pop</button>
+    <button name="action" value="peek" class="alt">Peek</button>
+  </form>
+  {% if message %}<div class="result">{{ message }}</div>{% endif %}
+  <div class="list stack">
+    <span class="null">top</span>
+    {% for item in items %}<span class="arrow">&darr;</span><span class="node">{{ item }}</span>{% endfor %}
+    <span class="arrow">&darr;</span><span class="null">bottom</span>
+  </div>
+  {% if not items %}<p class="empty">The stack is empty. Push your first value above.</p>{% endif %}
+</div>
+{% endblock %}
